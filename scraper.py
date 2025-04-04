@@ -75,6 +75,7 @@ def getMenu(meal):
 
     return output
 
+#This makes it so that this code will run only if ran as current file
 if __name__ == "__main__":
     string = getMenu(1)
     print(string)
