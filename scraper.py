@@ -75,21 +75,21 @@ def getMenu(meal):
 
     return output
 
+if __name__ == "__main__":
+    string = getMenu(1)
+    print(string)
+    lst = [1,2,3,1,4,5]
+    start = 0
+    done = False
+    while not done:
 
-string = getMenu(1)
-print(string)
-lst = [1,2,3,1,4,5]
-start = 0
-done = False
-while not done:
-
-    indexOne = string.index("[", start)
-    indexTwo = string.index("[", indexOne + 1)
-    start = indexTwo + 1
-    print(string[indexOne:indexTwo])
-    if "[" not in string[start:]:
-        print(string[indexTwo:len(string)])
-        done = True
+        indexOne = string.index("[", start)
+        indexTwo = string.index("[", indexOne + 1)
+        start = indexTwo + 1
+        print(string[indexOne:indexTwo])
+        if "[" not in string[start:]:
+            print(string[indexTwo:len(string)])
+            done = True
 
 
 
