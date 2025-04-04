@@ -78,10 +78,10 @@ def getMenu(meal):
 #This makes it so that this code will run only if ran as current file
 if __name__ == "__main__":
     string = getMenu(1)
-    print(string)
     lst = [1,2,3,1,4,5]
     start = 0
     done = False
+    print("hi")
     while not done:
 
         indexOne = string.index("[", start)
