@@ -29,12 +29,13 @@ def run_discord_bot():
 
                 while not done:
                     indexOne = string.index("[", start)
-                    indexTwo = string.index("[", indexOne + 1)
-                    start = indexTwo + 1
-                    await message.channel.send(string[indexOne:indexTwo])
-                    if "[" not in string[start:]:
-                        await message.channel.send(string[indexTwo:len(string)])
+                    if "[" not in string[indexOne + 1:]:
+                        await message.channel.send(string[indexOne:].strip())
                         done = True
+                    else:
+                        indexTwo = string.index("[", indexOne + 1)
+                        await message.channel.send(string[indexOne:indexTwo].strip())
+                        start = indexTwo
 
 
 

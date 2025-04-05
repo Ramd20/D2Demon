@@ -10,7 +10,7 @@ CACHE_FILE = "D2Cache.json"
 
 
 
-htmltext = requests.get("https://foodpro.students.vt.edu/menus/MenuAtLocation.aspx?locationNum=15&naFlag=1&myaction=read&dtdate=3%2f27%2f2025").text
+htmltext = requests.get("https://foodpro.students.vt.edu/menus/MenuAtLocation.aspx?locationNum=15&naFlag=1&myaction=read&dtdate=4%2f3%2f2025").text
 soup = BeautifulSoup(htmltext, "lxml")
 
 nutritionurl = "https://foodpro.students.vt.edu/menus/"
@@ -77,20 +77,22 @@ def getMenu(meal):
 
 #This makes it so that this code will run only if ran as current file
 if __name__ == "__main__":
-    string = getMenu(1)
-    lst = [1,2,3,1,4,5]
+    string = getMenu(2)
+
     start = 0
     done = False
     print("hi")
-    while not done:
 
+    while not done:
         indexOne = string.index("[", start)
-        indexTwo = string.index("[", indexOne + 1)
-        start = indexTwo + 1
-        print(string[indexOne:indexTwo])
-        if "[" not in string[start:]:
-            print(string[indexTwo:len(string)])
+
+        if "[" not in string[indexOne + 1:]:
+            print(string[indexOne:].strip())
             done = True
+        else:
+            indexTwo = string.index("[", indexOne + 1)
+            print(string[indexOne:indexTwo].strip())
+            start = indexTwo
 
 
 
